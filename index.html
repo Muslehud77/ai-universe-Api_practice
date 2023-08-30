@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@3.3.1/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script
+      src="https://kit.fontawesome.com/951ec0bf9d.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>AI UNIVERSE HUB</title>
+  </head>
+  <body>
+    <header class="text-center my-10 space-y-3">
+      <h1 class="text-4xl font-semibold">AI Universe Hub</h1>
+      <button class="btn hidden btn-error text-white">Sort by Date</button>
+    </header>
+    <main class="container mx-auto">
+
+      <section id="progress" class="text-center my-72">
+        <progress class="progress w-56"></progress>
+      </section>
+
+      <div
+        id="ai-container"
+        class="grid grid-cols-1 lg:grid-cols-3 gap-10 w-10/12 mx-auto"
+      ></div>
+       <section>
+      <!-- The button to open modal -->
+
+      <div class="modal" id="details">
+        <div class="relative w-10/12 bg-white p-5 md:p-10 rounded-xl">
+          <div
+            id="modal"
+            class="flex flex-col md:flex-row justify-around gap-5"
+          ></div>
+          <div class="modal-action">
+            <a
+              href="#"
+              class="btn border-none rounded-full text-white bg-red-500 hover:bg-red-700 absolute -top-5 -right-5"
+              ><i class="fa-solid fa-xmark"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center my-10">
+        <button id="show-all" onclick="showAll()" class="btn hidden">
+          Show All
+        </button>
+      </div>
+    </section>
+    </main>
+
+   
+    <footer class="footer footer-center p-4 bg-base-300 text-base-content">
+      <div>
+        <p>Copyright © 2023 - Musleh Practicing Webdev</p>
+      </div>
+    </footer>
+
+    <script src="ai-hub-fetch.js"></script>
+  </body>
+</html>
