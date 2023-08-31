@@ -39,7 +39,7 @@ container.innerHTML= ''
 
 let sorting = false;
 const sortByDate = () =>{
- 
+ bar.classList.remove("hidden");
 sortDate.classList.add("hidden");
 sorting = true;
 container.innerHTML = "";
