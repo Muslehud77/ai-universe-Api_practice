@@ -7,7 +7,7 @@ Single data Example: https://openapi.programming-hero.com/api/ai/tool/01
 const container = document.getElementById("ai-container");
 const showBtn = document.getElementById("show-all");
 const bar = document.getElementById("progress");
-
+const sortDate = document.getElementById("sort");
 
 
 const getAi = async (cmd=false) =>{
@@ -27,12 +27,25 @@ const getAi = async (cmd=false) =>{
    
 }
 
-
+let showAllai = true;
 const showAll = () =>{
   bar.classList.remove("hidden");
-  const showAll =true;
-getAi(showAll)
+  
+getAi(showAllai)
 container.innerHTML= ''
+}
+
+
+
+let sorting = false;
+const sortByDate = () =>{
+ 
+sortDate.classList.add("hidden");
+sorting = true;
+container.innerHTML = "";
+
+ getAi();
+
 }
 
 
@@ -44,17 +57,25 @@ const  getData = (aiList , cmd)=>{
 cmd ? aiList : aiList.splice(0, 6);
 aiList.length < 7 ? showBtn.classList.remove("hidden") : showBtn.classList.add("hidden") 
 
+let sorted = aiList
 
+if(sorting){
+  function sortDate(a, b) {
+    return (
+      new Date(b.published_in).valueOf() - new Date(a.published_in).valueOf()
+    );
+  }
 
+  sorted = aiList.sort(sortDate);
+}else{
+  sorted = aiList
+}
 
-  aiList.forEach((ai)=>{
-    
+  sorted.forEach((ai)=>{
     
     const div = document.createElement("div");
-    div.classList =
-      `card bg-base-100 outline outline-gray-300 p-5 space-y-5`
-    ;
-      div.innerHTML = `  <figure class="h-52">
+    div.classList = `card bg-base-100 outline outline-gray-300 p-5 space-y-5`;
+    div.innerHTML = `  <figure class="h-52">
             <img
               src="${ai.image}"
               alt="Ai"
@@ -79,6 +100,10 @@ aiList.length < 7 ? showBtn.classList.remove("hidden") : showBtn.classList.add("
             </div>
            </div>
           </div>`;
+
+
+    
+   
 
   
           
